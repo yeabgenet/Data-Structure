@@ -1,0 +1,209 @@
+import java.util.*;
+
+public class Main {
+
+    public static void linear(int ary[] ,int m , int x ){   //linear searching
+
+        for(int j=0 ; j<m ; j++){
+
+            if(ary[j]==x){
+                System.out.println("Found");
+
+            }
+            else {
+                System.out.println("Not Found");
+            }
+
+        }
+
+    }
+
+    public static void binsor(int ary[], int b, int k) {
+
+        // Selection sorting
+        for (int i = 0; i < b - 1; i++) {
+            int min = i;
+            for (int j = i + 1; j < b; j++) {
+                if (ary[j] < ary[min]) {
+                    min = j;
+                }
+            }
+
+            int store = ary[min];
+            ary[min] = ary[i];
+            ary[i] = store;
+            System.out.println("Sorted Value: " + ary[i]);
+
+        }
+
+        // Binary search
+        int L = 0, R = b - 1;
+        while (L <= R) {
+            int mid = L + (R - L) / 2;
+
+            if (ary[mid] == k) {
+                System.out.println("The Middle Value Is Found: " + ary[mid]);
+                return;
+            } else if (ary[mid] < k) {
+                L = mid + 1;
+            } else {
+                R = mid - 1;
+            }
+        }
+
+        System.out.println("It's not found");
+    }
+
+    public static void select(int arr[] , int n) {  //select sorting
+
+        for (int i = 0; i < n - 1; i++) {
+
+            int min_idx = i;
+            for (int j = i + 1; j < n; j++) {
+                if (arr[j] < arr[min_idx]) {
+                    min_idx = j;
+
+                    int temp = arr[min_idx];
+                    arr[min_idx] = arr[i];
+                    arr[i] = temp;
+                }
+            }
+
+            for (int a = 0; a < n; ++a) {
+                System.out.print(arr[a] + " ");
+                System.out.println();
+            }
+
+
+        }
+
+    }
+
+    public static void insertion (int array [] , int s){  //insertion sort
+
+        for (int i = 1; i < s; ++i) {
+            int key = array[i];
+            int j = i - 1;
+
+            while (j >= 0 && array[j] > key) {
+                array[j + 1] = array[j];
+                j = j - 1;
+            }
+            array[j + 1] = key;
+        }
+
+
+        for (int i = 0; i < s; ++i){
+
+            System.out.print(array[i] + " ");
+
+            System.out.println();
+        }
+
+    }
+
+    public static void bubble(int arr[], int r) {  //bubble sort
+        int temp;
+        boolean swap;
+
+        for (int i = 0; i < r - 1; i++) {
+            swap = false;
+            for (int j = 0; j < r - i - 1; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                    swap = true;
+                }
+            }
+            if (!swap) {
+                break;
+            }
+        }
+    }
+    static void printArray(int arr[], int size) {
+        for (int i = 0; i < size; i++) {
+            System.out.print(arr[i] + " ");
+        }
+        System.out.println();
+    }
+
+
+
+
+    public static void main(String[] args) {
+
+        Scanner sc=new Scanner(System.in);
+
+int choose;
+
+        int n , x;
+
+
+
+        System.out.println("Enter the amount of data ");
+
+        n=sc.nextInt();
+        int[] box = new int[n];
+
+        System.out.println("Enter The Numbers");
+
+        for(int i=0 ; i<n ; i++){
+
+            box[i]=sc.nextInt();
+
+        }
+
+
+        System.out.println("Choose Your Sorting And Searching Method");
+
+        System.out.println(" 1=Linear Searching \n 2=Binary Searching \n 3=Selection Sort \n 4=Bubble Sort \n 5=Insertion Sort");
+
+        choose=sc.nextInt();
+
+
+
+
+
+        if(1==choose){
+
+            System.out.println("Linear Searching");
+            System.out.println("Enter the value u want to search");
+            x=sc.nextInt();
+
+    linear(box , n , x);
+
+}
+
+if(2==choose){
+
+
+
+    System.out.println("Binary Searching");
+    System.out.println("Enter the value u want to search");
+    x=sc.nextInt();
+
+    binsor(box , n , x );
+}
+if(3==choose){
+
+    System.out.println("Selection Sort");
+    select(box , n);
+
+
+}
+
+if(4==choose){
+    System.out.println("Bubble Sort");
+    bubble(box , n);
+    printArray(box , n);
+}
+
+if(5==choose){
+    System.out.println("Insertion Sort");
+
+    insertion(box , n );
+
+}
+    }
+}
