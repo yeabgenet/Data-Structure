@@ -1,0 +1,40 @@
+import java.util.Scanner; 
+ 
+public class Main { 
+    public static void main(String[] args) { 
+        int n , x ; 
+ 
+        Scanner Input=new Scanner(System.in); 
+ 
+        System.out.println("Enter the amount of data "); 
+ 
+        n=Input.nextInt(); 
+       int[] box = new int[n]; 
+ 
+        System.out.println("Enter The Numbers"); 
+ 
+      for(int i=0 ; i<n ; i++){ 
+ 
+          box[i]=Input.nextInt(); 
+ 
+      } 
+        System.out.println("Enter the value u want to search"); 
+      x=Input.nextInt(); 
+ 
+for(int j=0 ; j<n ; j++){ 
+ 
+    if(box[j]==x){ 
+        System.out.println("Found"); 
+ 
+    } 
+    else { 
+        System.out.println("Not Found"); 
+    } 
+ 
+} 
+ 
+    }  
+
+} 
+
+ 
